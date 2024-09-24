@@ -15,3 +15,4 @@ yarn dev
 - Write tests
 - Explore more ways of visualizing the data
 - More aesthetic improvements such as a custom tooltip
+- Improve chart responsivity on mobile screens

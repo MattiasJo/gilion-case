@@ -33,7 +33,7 @@ const BarChart: FC<Props> = memo(({ countryCodes, dataByCountry }) => {
           dataByCountry,
           false
         ),
-        backgroundColor: Colors.Blue,
+        backgroundColor: Colors.Blue80,
         stack: "Actual",
       },
       {
@@ -43,7 +43,7 @@ const BarChart: FC<Props> = memo(({ countryCodes, dataByCountry }) => {
           dataByCountry,
           false
         ),
-        backgroundColor: Colors.Green,
+        backgroundColor: Colors.Orange50,
         stack: "Projected",
       },
       {
@@ -53,7 +53,7 @@ const BarChart: FC<Props> = memo(({ countryCodes, dataByCountry }) => {
           dataByCountry,
           true
         ),
-        backgroundColor: Colors.Blue50,
+        backgroundColor: Colors.Green80,
         stack: "Actual",
       },
       {
@@ -63,7 +63,7 @@ const BarChart: FC<Props> = memo(({ countryCodes, dataByCountry }) => {
           dataByCountry,
           true
         ),
-        backgroundColor: Colors.Green50,
+        backgroundColor: Colors.Red50,
         stack: "Projected",
       },
     ],
