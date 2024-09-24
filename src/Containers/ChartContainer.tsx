@@ -13,36 +13,33 @@ export const ChartContainer = () => {
     marketSpendByYear,
   } = useChartData();
 
-  return (
-    <Grid container size={12} direction="row" spacing={2}>
-      {isLoading ? (
-        <CircularProgress />
-      ) : (
-        <>
-          <Grid size={{ xs: 12, md: 8 }} direction="column">
-            <LineChart
-              dataByYear={dataByYear}
-              marketSpendByYear={marketSpendByYear}
-            />
-            <BarChart
-              countryCodes={countryCodes}
-              dataByCountry={dataByCountry}
-            />
-          </Grid>
-          <Grid size={{ xs: 12, md: 4 }} direction="column">
-            <PieChart
-              countryCodes={countryCodes}
-              dataByCountry={dataByCountry}
-              type="Marketing Spend"
-            />
-            <PieChart
-              countryCodes={countryCodes}
-              dataByCountry={dataByCountry}
-              type="New Customers"
-            />
-          </Grid>
-        </>
-      )}
+  return isLoading ? (
+    <CircularProgress />
+  ) : (
+    <Grid container spacing={2} padding={2} maxWidth="1280px">
+      <Grid size={{ xs: 12, sm: 8 }}>
+        <LineChart
+          dataByYear={dataByYear}
+          marketSpendByYear={marketSpendByYear}
+        />
+      </Grid>
+      <Grid size={{ xs: 12, sm: 4 }}>
+        <PieChart
+          countryCodes={countryCodes}
+          dataByCountry={dataByCountry}
+          type="Marketing Spend"
+        />
+      </Grid>
+      <Grid size={{ xs: 12, sm: 8 }}>
+        <BarChart countryCodes={countryCodes} dataByCountry={dataByCountry} />
+      </Grid>
+      <Grid size={{ xs: 12, sm: 4 }}>
+        <PieChart
+          countryCodes={countryCodes}
+          dataByCountry={dataByCountry}
+          type="New Customers"
+        />
+      </Grid>
     </Grid>
   );
 };
