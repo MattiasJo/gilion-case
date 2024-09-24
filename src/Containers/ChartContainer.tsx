@@ -14,12 +14,12 @@ export const ChartContainer = () => {
   } = useChartData();
 
   return (
-    <Grid container size={12} direction="row" spacing={4}>
+    <Grid container size={12} direction="row" spacing={2}>
       {isLoading ? (
         <CircularProgress />
       ) : (
         <>
-          <Grid size={{ xs: 12, md: 8 }} direction="column" spacing={4}>
+          <Grid size={{ xs: 12, md: 8 }} direction="column">
             <LineChart
               dataByYear={dataByYear}
               marketSpendByYear={marketSpendByYear}
@@ -29,7 +29,7 @@ export const ChartContainer = () => {
               dataByCountry={dataByCountry}
             />
           </Grid>
-          <Grid size={{ xs: 12, md: 4 }} direction="column" spacing={4}>
+          <Grid size={{ xs: 12, md: 4 }} direction="column">
             <PieChart
               countryCodes={countryCodes}
               dataByCountry={dataByCountry}

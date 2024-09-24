@@ -13,6 +13,7 @@ import { DataByCountry } from "../Types/ChartDataTypes";
 import { ChartDataUtil } from "../Util/ChartDataUtil";
 import { toCountryLabel } from "../Util/LabelUtil";
 import { Colors } from "../Types/Colors";
+import { useChartStyling } from "../Hooks/useChartStyling";
 
 interface Props {
   countryCodes: string[];
@@ -20,6 +21,8 @@ interface Props {
 }
 
 const BarChart: FC<Props> = memo(({ countryCodes, dataByCountry }) => {
+  const { legendStyling } = useChartStyling();
+
   const data = {
     labels: countryCodes.map(toCountryLabel),
     datasets: [
@@ -78,6 +81,7 @@ const BarChart: FC<Props> = memo(({ countryCodes, dataByCountry }) => {
         display: true,
         text: "Market spend vs new customers by country",
       },
+      legend: legendStyling,
     },
   };
 

@@ -9,13 +9,13 @@ import {
 } from "../Types/ChartDataTypes";
 import { ChartDataMapper } from "../Mappers/ChartDataMapper";
 
-type Out = {
+interface Out {
   isLoading: boolean;
   countryCodes: string[];
   dataByCountry: DataByCountry;
   dataByYear: DataByYear;
   marketSpendByYear: MarketSpendByYear;
-};
+}
 
 export const useChartData = (): Out => {
   const { data, isLoading } = useQuery({

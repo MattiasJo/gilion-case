@@ -5,6 +5,7 @@ import { DataByCountry } from "../Types/ChartDataTypes";
 import { toCountryLabel } from "../Util/LabelUtil";
 import { ChartDataUtil } from "../Util/ChartDataUtil";
 import { Colors } from "../Types/Colors";
+import { useChartStyling } from "../Hooks/useChartStyling";
 
 interface Props {
   countryCodes: string[];
@@ -13,6 +14,8 @@ interface Props {
 }
 
 const PieChart: FC<Props> = memo(({ countryCodes, dataByCountry, type }) => {
+  const { legendStyling } = useChartStyling();
+
   const data = {
     labels: countryCodes.map(toCountryLabel),
     datasets: [
@@ -43,16 +46,15 @@ const PieChart: FC<Props> = memo(({ countryCodes, dataByCountry, type }) => {
 
   const options = {
     responsive: true,
-    canvas: {
-      width: 20,
-    },
     plugins: {
       title: {
         display: true,
         text: type,
       },
+      legend: legendStyling,
     },
     cutout: "50%",
+    borderColor: "#2c3e50",
   };
 
   ChartJS.register(ArcElement);

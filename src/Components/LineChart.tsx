@@ -12,6 +12,7 @@ import {
 } from "chart.js";
 import { DataByYear, MarketSpendByYear } from "../Types/ChartDataTypes";
 import { Colors } from "../Types/Colors";
+import { useChartStyling } from "../Hooks/useChartStyling";
 
 interface Props {
   dataByYear: DataByYear;
@@ -19,6 +20,8 @@ interface Props {
 }
 
 const LineChart: FC<Props> = memo(({ dataByYear, marketSpendByYear }) => {
+  const { legendStyling } = useChartStyling();
+
   const lineChartData = {
     labels: Object.keys(dataByYear),
     datasets: [
@@ -43,6 +46,7 @@ const LineChart: FC<Props> = memo(({ dataByYear, marketSpendByYear }) => {
         display: true,
         text: "Market spend over time",
       },
+      legend: legendStyling,
     },
   };
 
