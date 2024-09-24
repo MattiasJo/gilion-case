@@ -1,13 +1,14 @@
-import { DataFetchDemo } from "./Components/DataFetchDemo";
 import "./App.css";
-import { LineChartExample } from "./Components/LineChartExample";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ChartContainer } from "./Containers/ChartContainer";
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <div className="App">
-      <DataFetchDemo />
-      <LineChartExample />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <ChartContainer />
+    </QueryClientProvider>
   );
 }
 
